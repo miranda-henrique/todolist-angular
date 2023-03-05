@@ -14,3 +14,46 @@ button {
   border: none;
   cursor: pointer;
 }
+
+body {
+  background-color: #F2F2F2;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+.inactive {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid hsla(236, 32%, 92%, 1);
+}
+
+.inactive img{
+  display: none;
+}
+
+.active {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: rgb(85,221,255);
+  background: linear-gradient(110deg, rgba(85,221,255,1) 0%, rgba(192,88,243,1) 100%);
+}
+
+.list-item {
+  background-color: #FFFFFF;
+  width: 33.75rem;
+  box-sizing: border-box;
+  padding: 1.25rem;
+  margin: 0 auto;
+  font-size: 1.25rem;
+}
+
+.font-list-item {
+  color: #9495A5;
+  font-size: 1.12rem;
+}

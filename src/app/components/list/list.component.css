@@ -1,0 +1,47 @@
+.todo-list-container {
+  padding: 0;
+  border-radius: 0.5rem;
+  position: relative;
+
+  top: -3.3rem;
+}
+
+.todo-list-container li{
+  padding: 1.25rem;
+  border-bottom: 1px solid #E3E4F1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  cursor: pointer;
+}
+
+.todo-list-container .checked{
+  text-decoration: line-through;
+  color: #D1D2DA;
+}
+
+.todo-list-options {
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-list-options button{
+  background-color: transparent;
+  color: #9495A5;
+  font-size: 0.875rem;
+}
+
+.todo-list-options-sort {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-list-options-sort button {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.todo-list-options-sort .selected {
+  color: #3A7CFD;
+}
