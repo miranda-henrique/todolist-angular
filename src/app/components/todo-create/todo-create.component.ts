@@ -1,15 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Item } from 'src/app/interfaces/item';
 
 @Component({
   selector: 'app-todo-create',
   templateUrl: './todo-create.component.html',
-  styleUrls: ['./todo-create.component.css']
+  styleUrls: ['./todo-create.component.css'],
 })
 export class TodoCreateComponent implements OnInit {
+  @Input() todos: Item[] = [];
+  @Input() completedTodos: Item[] = [];
+  @Input() activeTodos: Item[] = [];
 
-  constructor() { }
+  todo: Item = {
+    content: '',
+    isActive: false,
+  };
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  changeActive() {
+    this.todo.isActive = !this.todo.isActive;
   }
 
+  addToTodos(todo: Item, f: NgForm) {
+    this.todos.push({
+      content: todo.content,
+      isActive: todo.isActive,
+    });
+
+    if (todo.isActive) {
+      this.completedTodos.push({ ...todo });
+    } else {
+      this.activeTodos.push({ ...todo });
+    }
+    f.resetForm();
+  }
 }

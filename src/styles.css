@@ -23,7 +23,7 @@ ul, ol {
   list-style-type: none;
 }
 
-.inactive {
+.disabled {
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -32,14 +32,14 @@ ul, ol {
   transition: 0.4s;
 }
 
-.inactive:hover {
+.disabled:hover {
   background: linear-gradient(white, white) padding-box,
   linear-gradient(110deg, rgba(85,221,255,1) 0%, rgba(192,88,243,1) 100%) border-box;
   border-radius: 50%;
   border: 1px solid transparent;
 }
 
-.inactive img{
+.disabled img{
   display: none;
 }
 

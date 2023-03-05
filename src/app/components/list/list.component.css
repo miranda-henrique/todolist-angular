@@ -3,33 +3,8 @@
   border-radius: 0.5rem;
   position: relative;
 
-  top: -3.3rem;
+  top: -7rem;
   box-shadow: -8px 38px 53px -21px rgba(73,76,107,0.3);
-}
-
-.todo-list-container li{
-  padding: 1.25rem;
-  border-bottom: 1px solid #E3E4F1;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.todo-list-container li .delete{
-  opacity: 0;
-  margin-left: auto;
-  background: transparent;
-  transition: 0.4s;
-}
-
-.todo-list-container li:hover .delete{
-  opacity: 100;
-  background: transparent;
-}
-
-.todo-list-container .checked{
-  text-decoration: line-through;
-  color: #D1D2DA;
 }
 
 .todo-list-options {

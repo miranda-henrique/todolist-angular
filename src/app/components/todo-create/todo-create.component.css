@@ -2,7 +2,7 @@
   position: relative;
   right: 0;
   left: 0;
-  bottom: 5rem;
+  bottom: 9rem;
   border-radius: 0.5rem;
 
   display: flex;
@@ -15,5 +15,14 @@
 
 .input-container input[type=text] {
   border: none;
-  width: 100%;
+  width: 90%;
+}
+
+button {
+  width: 24px;
+  height: 24px;
+}
+
+.body-container {
+  display: flex;
 }

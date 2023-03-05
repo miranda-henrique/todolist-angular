@@ -1,11 +1,15 @@
-<div class="input-container list-item">
-  <button class="active">
+<form
+  class="input-container list-item" #f="ngForm"
+  (ngSubmit)="addToTodos(todo, f)">
+  <button type="button" [ngClass]="((todo.isActive ? 'active' : 'disabled'))" (click)="changeActive()">
     <img src="assets/check.svg"/>
   </button>
   <input class="ff-josefin font-list-item"
     type="text"
-    name=""
+    name="content"
     id=""
+    placeholder="Insert your todo here..."
+    [(ngModel)]="todo.content"
   >
-</div>
+</form>
 

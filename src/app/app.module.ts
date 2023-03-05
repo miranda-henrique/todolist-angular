@@ -6,6 +6,8 @@ import { ListComponent } from './components/list/list.component';
 import { TodoCreateComponent } from './components/todo-create/todo-create.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ItemComponent } from './components/item/item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,8 +16,9 @@ import { HeaderComponent } from './components/header/header.component';
     TodoCreateComponent,
     FooterComponent,
     HeaderComponent,
+    ItemComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
