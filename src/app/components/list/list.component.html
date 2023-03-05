@@ -4,8 +4,8 @@
   [activeTodos] = "activeTodos"
 ></app-todo-create>
 <div class="todo-list-container ff-josefin list-item font-list-item">
-  <div *ngIf="filter === 'all'">
-    <ul *ngFor="let todo of todos">
+  <div *ngIf="filter === 'all'" cdkDropList (cdkDropListDropped)="drop($event)">
+    <ul *ngFor="let todo of todos" cdkDrag>
       <app-item
       [todo]="todo"
       [todos]="todos"
@@ -14,8 +14,8 @@
       ></app-item>
     </ul>
   </div>
-  <div *ngIf="filter === 'completed'">
-    <ul *ngFor="let todo of completedTodos">
+  <div *ngIf="filter === 'completed'" cdkDropList (cdkDropListDropped)="drop($event)">
+    <ul *ngFor="let todo of completedTodos" cdkDrag>
       <app-item
       [todo]="todo"
       [todos]="todos"
@@ -24,8 +24,8 @@
       ></app-item>
     </ul>
   </div>
-  <div *ngIf="filter === 'active'">
-    <ul *ngFor="let todo of activeTodos">
+  <div *ngIf="filter === 'active'" cdkDropList (cdkDropListDropped)="drop($event)">
+    <ul *ngFor="let todo of activeTodos" cdkDrag>
       <app-item
       [todo]="todo"
       [todos]="todos"

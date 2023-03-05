@@ -24,13 +24,14 @@ export class ItemComponent implements OnInit {
 
   toggleIsActive(todo: Item) {
     todo.isActive = !todo.isActive;
+    console.log(todo)
     const completedTodoIndex = this.completedTodos.indexOf(todo);
     const activeTodoIndex = this.activeTodos.indexOf(todo);
     if (todo.isActive) {
-      this.completedTodos.push({ ...todo });
+      this.completedTodos.push(todo);
       this.activeTodos.splice(activeTodoIndex, 1);
     } else {
-      this.activeTodos.push({ ...todo });
+      this.activeTodos.push(todo);
       this.completedTodos.splice(completedTodoIndex, 1);
     }
   }

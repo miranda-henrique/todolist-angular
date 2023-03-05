@@ -8,6 +8,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ItemComponent } from './components/item/item.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,12 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ItemComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    DragDropModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

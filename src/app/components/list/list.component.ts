@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../../interfaces/item';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list',
@@ -52,5 +53,15 @@ export class ListComponent implements OnInit {
   clearCompletedTodos() {
     this.todos = this.activeTodos;
     this.completedTodos = [];
+  }
+
+  drop(event: CdkDragDrop<Item[]>) {
+    moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
+    moveItemInArray(
+      this.completedTodos,
+      event.previousIndex,
+      event.currentIndex
+    );
+    moveItemInArray(this.activeTodos, event.previousIndex, event.currentIndex);
   }
 }
