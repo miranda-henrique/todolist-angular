@@ -1,5 +1,5 @@
 footer {
-  color: #9495A5;
+  color: var(--options-font-color);
   min-height: 5rem;
   display: flex;
   align-items: center;

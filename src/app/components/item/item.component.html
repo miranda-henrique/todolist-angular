@@ -1,5 +1,5 @@
 <li>
   <button [ngClass]="((todo.isActive ? 'active' : 'disabled'))" (click)="toggleIsActive(todo)"><img src="assets/check.svg"></button>
   <span [ngClass]="((todo.isActive ? 'checked' : ''))">{{ todo.content }}</span>
-  <button class="delete" (click)="deleteTodo(todo)"><img src="assets/ex.svg"/> </button>
+  <button class="delete" (click)="deleteTodo(todo)"><img class="ex-icon" src="assets/ex.svg"/> </button>
 </li>

@@ -5,6 +5,7 @@
 
   top: -7rem;
   box-shadow: -8px 38px 53px -21px rgba(73,76,107,0.3);
+  transition: 0.4s;
 }
 
 .todo-list-options {
@@ -21,7 +22,7 @@
 .todo-list-options-sort button,
 .todo-list-options button,
 .todo-list-options span {
-  color: #9495A5;
+  color: var(--options-font-color);
   font-size: 0.875rem;
 }
 
@@ -37,17 +38,17 @@
 
 .todo-list-options-sort button:hover,
 .todo-list-options button:hover {
-  color: #494C6B;
+  color: var(--options-hover-font-color);
 }
 
 .todo-list-options-sort .selected {
-  color: #3A7CFD;
+  color: var(--options-active-font-color);
 }
 
 .cdk-drag-preview {
   font-family: 'Josefin Sans', sans-serif;
-  background-color: #FFFFFF;
-  color: #9495A5;
+  background-color: var(--item-background-color);
+  color: var(--options-font-color);
   font-size: 1.12rem;
   box-sizing: border-box;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
