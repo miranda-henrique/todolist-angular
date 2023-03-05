@@ -25,7 +25,7 @@ export class ItemComponent implements OnInit {
   toggleIsActive(todo: Item) {
     todo.isActive = !todo.isActive;
     const completedTodoIndex = this.completedTodos.indexOf(todo);
-    const activeTodoIndex = this.completedTodos.indexOf(todo);
+    const activeTodoIndex = this.activeTodos.indexOf(todo);
     if (todo.isActive) {
       this.completedTodos.push({ ...todo });
       this.activeTodos.splice(activeTodoIndex, 1);
@@ -38,10 +38,13 @@ export class ItemComponent implements OnInit {
   deleteTodo(todo: Item): void {
     const todoIndex = this.todos.indexOf(todo);
     const completedTodoIndex = this.completedTodos.indexOf(todo);
+    const activeTodoIndex = this.activeTodos.indexOf(todo);
     this.todos.splice(todoIndex, 1);
 
     if (todo.isActive) {
       this.completedTodos.splice(completedTodoIndex, 1);
+    } else {
+      this.activeTodos.splice(activeTodoIndex, 1);
     }
   }
 }

@@ -33,9 +33,12 @@ export class TodoCreateComponent implements OnInit {
 
     if (todo.isActive) {
       this.completedTodos.push({ ...todo });
-    } else {
+    }
+
+    if (!todo.isActive) {
       this.activeTodos.push({ ...todo });
     }
+
     f.resetForm();
   }
 }

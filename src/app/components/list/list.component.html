@@ -4,22 +4,43 @@
   [activeTodos] = "activeTodos"
 ></app-todo-create>
 <div class="todo-list-container ff-josefin list-item font-list-item">
-  <div>
+  <div *ngIf="filter === 'all'">
     <ul *ngFor="let todo of todos">
       <app-item
       [todo]="todo"
       [todos]="todos"
       [completedTodos] = "completedTodos"
+      [activeTodos]="activeTodos"
+      ></app-item>
+    </ul>
+  </div>
+  <div *ngIf="filter === 'completed'">
+    <ul *ngFor="let todo of completedTodos">
+      <app-item
+      [todo]="todo"
+      [todos]="todos"
+      [completedTodos] = "completedTodos"
+      [activeTodos]="activeTodos"
+      ></app-item>
+    </ul>
+  </div>
+  <div *ngIf="filter === 'active'">
+    <ul *ngFor="let todo of activeTodos">
+      <app-item
+      [todo]="todo"
+      [todos]="todos"
+      [completedTodos] = "completedTodos"
+      [activeTodos]="activeTodos"
       ></app-item>
     </ul>
   </div>
   <div class="todo-list-options">
-    <span> {{todos.length - completedTodos.length}} items left</span>
+    <span> {{activeTodos.length}} items left</span>
     <div class="todo-list-options-sort">
-      <button class="ff-josefin selected">All</button>
-      <button class="ff-josefin">Active</button>
-      <button class="ff-josefin">Completed</button>
+      <button class="ff-josefin selected" (click)="showItems('all')">All</button>
+      <button class="ff-josefin" (click)="showItems('active')">Active</button>
+      <button class="ff-josefin" (click)="showItems('completed')">Completed</button>
     </div>
-    <button class="ff-josefin">Clear Completed</button>
+    <button class="ff-josefin" (click)="clearCompletedTodos()">Clear Completed</button>
   </div>
 </div>

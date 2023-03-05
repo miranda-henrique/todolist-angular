@@ -7,6 +7,8 @@ import { Item } from '../../interfaces/item';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  filter: String = 'all';
+
   todos: Item[] = [
     {
       content: 'Lorem Ipsum Aolor',
@@ -33,8 +35,22 @@ export class ListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.completedTodos = this.todos.filter(item => item.isActive === true);
-    this.activeTodos = this.todos.filter(item => item.isActive === false);
+    this.completedTodos = this.todos.filter((item) => item.isActive === true);
+    this.activeTodos = this.todos.filter((item) => item.isActive === false);
   }
 
+  showItems(filter: String) {
+    if (filter === 'all') {
+      this.filter = 'all';
+    } else if (filter === 'completed') {
+      this.filter = 'completed';
+    } else {
+      this.filter = 'active';
+    }
+  }
+
+  clearCompletedTodos() {
+    this.todos = this.activeTodos;
+    this.completedTodos = [];
+  }
 }
