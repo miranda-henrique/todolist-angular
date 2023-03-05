@@ -1,0 +1,7 @@
+footer {
+  color: #9495A5;
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

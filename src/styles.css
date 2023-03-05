@@ -28,7 +28,15 @@ ul, ol {
   height: 24px;
   border-radius: 50%;
   background-color: #FFFFFF;
-  border: 2px solid hsla(236, 32%, 92%, 1);
+  border: 1px solid hsla(236, 32%, 92%, 1);
+  transition: 0.4s;
+}
+
+.inactive:hover {
+  background: linear-gradient(white, white) padding-box,
+  linear-gradient(110deg, rgba(85,221,255,1) 0%, rgba(192,88,243,1) 100%) border-box;
+  border-radius: 50%;
+  border: 1px solid transparent;
 }
 
 .inactive img{
@@ -57,3 +65,5 @@ ul, ol {
   color: #9495A5;
   font-size: 1.12rem;
 }
+
+

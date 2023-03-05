@@ -4,6 +4,7 @@
   position: relative;
 
   top: -3.3rem;
+  box-shadow: -8px 38px 53px -21px rgba(73,76,107,0.3);
 }
 
 .todo-list-container li{
@@ -12,7 +13,18 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  cursor: pointer;
+}
+
+.todo-list-container li .delete{
+  opacity: 0;
+  margin-left: auto;
+  background: transparent;
+  transition: 0.4s;
+}
+
+.todo-list-container li:hover .delete{
+  opacity: 100;
+  background: transparent;
 }
 
 .todo-list-container .checked{
@@ -26,20 +38,31 @@
   justify-content: space-between;
 }
 
-.todo-list-options button{
-  background-color: transparent;
-  color: #9495A5;
-  font-size: 0.875rem;
-}
-
 .todo-list-options-sort {
   display: flex;
   gap: 10px;
 }
 
+.todo-list-options-sort button,
+.todo-list-options button,
+.todo-list-options span {
+  color: #9495A5;
+  font-size: 0.875rem;
+}
+
+.todo-list-options-sort button,
+.todo-list-options button {
+  background-color: transparent;
+  transition: 0.4s;
+}
+
 .todo-list-options-sort button {
   font-weight: 700;
-  font-size: 0.875rem;
+}
+
+.todo-list-options-sort button:hover,
+.todo-list-options button:hover {
+  color: #494C6B;
 }
 
 .todo-list-options-sort .selected {
