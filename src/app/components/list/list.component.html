@@ -37,9 +37,9 @@
   <div class="todo-list-options">
     <span> {{activeTodos.length}} items left</span>
     <div class="todo-list-options-sort">
-      <button class="ff-josefin selected" (click)="showItems('all')">All</button>
-      <button class="ff-josefin" (click)="showItems('active')">Active</button>
-      <button class="ff-josefin" (click)="showItems('completed')">Completed</button>
+      <button [ngClass]="((filter === 'all' ? 'ff-josefin selected' : 'ff-josefin'))" (click)="showItems('all')">All</button>
+      <button [ngClass]="((filter === 'active' ? 'ff-josefin selected' : 'ff-josefin'))" (click)="showItems('active')">Active</button>
+      <button [ngClass]="((filter === 'completed' ? 'ff-josefin selected' : 'ff-josefin'))" (click)="showItems('completed')">Completed</button>
     </div>
     <button class="ff-josefin" (click)="clearCompletedTodos()">Clear Completed</button>
   </div>
