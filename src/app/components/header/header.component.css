@@ -1,0 +1,28 @@
+header {
+  background-color: blue;
+  height: 18.75rem;
+  background: url("../../../assets/Bitmap.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  letter-spacing: 1rem;
+  width: 33.81rem;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: auto;
+  
+  position: relative;
+  bottom: 3rem;
+}
