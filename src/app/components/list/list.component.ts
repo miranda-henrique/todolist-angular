@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Item } from '../../interfaces/item';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-list',
@@ -10,34 +11,24 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 export class ListComponent implements OnInit {
   filter: String = 'all';
 
-  todos: Item[] = [
-    {
-      content: 'Lorem Ipsum Aolor',
-      isActive: false,
-    },
-    {
-      content: 'Lorem Ipsum Bolor',
-      isActive: false,
-    },
-    {
-      content: 'Lorem Ipsum Dolor',
-      isActive: true,
-    },
-    {
-      content: 'Lorem Ipsum Color',
-      isActive: true,
-    },
-  ];
+  todos: Item[] = [];
 
   completedTodos: Item[] = [];
 
   activeTodos: Item[] = [];
 
-  constructor() {}
+  constructor(
+    private LocalStorageService: LocalStorageService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.completedTodos = this.todos.filter((item) => item.isActive === true);
-    this.activeTodos = this.todos.filter((item) => item.isActive === false);
+    this.LocalStorageService.todos$.subscribe((data) => {
+      this.todos = data;
+      this.activeTodos = this.todos.filter((data) => data.isActive === false);
+      this.completedTodos = this.todos.filter((data) => data.isActive === true);
+      this.cdr.detectChanges();
+    });
   }
 
   showItems(filter: String) {
@@ -51,8 +42,7 @@ export class ListComponent implements OnInit {
   }
 
   clearCompletedTodos() {
-    this.todos = this.activeTodos;
-    this.completedTodos = [];
+    this.LocalStorageService.clearCompletedTodos();
   }
 
   drop(event: CdkDragDrop<Item[]>) {

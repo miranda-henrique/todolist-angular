@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Item } from './../../interfaces/item';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Item } from 'src/app/interfaces/item';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-todo-create',
@@ -8,16 +9,14 @@ import { Item } from 'src/app/interfaces/item';
   styleUrls: ['./todo-create.component.css'],
 })
 export class TodoCreateComponent implements OnInit {
-  @Input() todos: Item[] = [];
-  @Input() completedTodos: Item[] = [];
-  @Input() activeTodos: Item[] = [];
+  todos: Item[] = [];
 
   todo: Item = {
     content: '',
     isActive: false,
   };
 
-  constructor() {}
+  constructor(private LocalStorageService: LocalStorageService) {}
 
   ngOnInit(): void {}
 
@@ -26,19 +25,7 @@ export class TodoCreateComponent implements OnInit {
   }
 
   addToTodos(todo: Item, f: NgForm) {
-    this.todos.push({
-      content: todo.content,
-      isActive: todo.isActive,
-    });
-
-    if (todo.isActive) {
-      this.completedTodos.push({ ...todo });
-    }
-
-    if (!todo.isActive) {
-      this.activeTodos.push({ ...todo });
-    }
-
+    this.LocalStorageService.addTodo({ ...todo });
     f.resetForm();
   }
 }
