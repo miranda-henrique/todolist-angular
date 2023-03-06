@@ -10,7 +10,10 @@ export class LocalStorageService {
   private todoSubject = new BehaviorSubject<Item[]>([]);
 
   constructor() {
-    const data = JSON.parse(localStorage.getItem(this.ITEM_KEY) || '') || [];
+    if(!localStorage.getItem(this.ITEM_KEY)) {
+      localStorage.setItem(this.ITEM_KEY, JSON.stringify([]));
+    }
+    const data = JSON.parse(localStorage.getItem(this.ITEM_KEY)!);
     this.todoSubject.next(data);
   }
 
