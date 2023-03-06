@@ -8,20 +8,38 @@
   transition: 0.4s;
 }
 
-.todo-list-options {
+.todo-options-container {
   padding: 1.25rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template:
+  "items-left todo-list-options-sort clear";
+  column-gap: 4rem;
+}
+
+.items-left {
+  grid-area: items-left;
+  justify-self: start;
+}
+
+.clear {
+  grid-area: clear;
+  background-color: transparent;
+  justify-self: end;
 }
 
 .todo-list-options-sort {
+  grid-area: todo-list-options-sort;
   display: flex;
   gap: 10px;
+  justify-self: end;
 }
 
 .todo-list-options-sort button,
 .todo-list-options button,
-.todo-list-options span {
+.todo-list-options span,
+.todo-options-container,
+.clear {
   color: var(--options-font-color);
   font-size: 0.875rem;
 }
@@ -69,3 +87,30 @@
   transition: transform 200ms cubic-bezier(0, 0, 0.2, 0);
 }
 
+@media only screen and (max-width: 768px) {
+  .todo-options-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template:
+    "items-left . clear"
+    "todo-list-options-sort todo-list-options-sort todo-list-options-sort";
+    row-gap: 2rem;
+  }
+
+  .items-left {
+    grid-area: items-left;
+  }
+
+  .clear {
+    grid-area: clear;
+  }
+
+  .todo-list-options-sort {
+    grid-area: todo-list-options-sort;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    gap: 2em;
+  }
+}

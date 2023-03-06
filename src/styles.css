@@ -51,8 +51,8 @@ ul, ol {
 }
 
 .disabled {
-  width: 24px;
-  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
   border-radius: 50%;
   background-color: var(--item-background-color);
   border: 1px solid hsla(236, 32%, 92%, 1);
@@ -71,8 +71,8 @@ ul, ol {
 }
 
 .active {
-  width: 24px;
-  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
   border: none;
   border-radius: 50%;
   background: rgb(85,221,255);
@@ -80,12 +80,13 @@ ul, ol {
 }
 
 .list-item {
-  background-color: var(--item-background-color);
-  width: 33.75rem;
+  max-width: 33.75rem;
   box-sizing: border-box;
   padding: 1.25rem;
   margin: 0 auto;
   font-size: 1.25rem;
+  overflow-wrap: anywhere;
+  background-color: var(--item-background-color);
 }
 
 .font-list-item {

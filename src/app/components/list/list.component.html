@@ -15,13 +15,13 @@
       <app-item [todo]="todo"></app-item>
     </ul>
   </div>
-  <div class="todo-list-options">
-    <span> {{activeTodos.length}} items left</span>
+  <div class="todo-options-container">
+    <span class="todo-list-options items-left"> {{activeTodos.length}} items left</span>
+    <button class="todo-list-options ff-josefin clear" (click)="clearCompletedTodos()">Clear Completed</button>
     <div class="todo-list-options-sort">
       <button [ngClass]="((filter === 'all' ? 'ff-josefin selected' : 'ff-josefin'))" (click)="showItems('all')">All</button>
       <button [ngClass]="((filter === 'active' ? 'ff-josefin selected' : 'ff-josefin'))" (click)="showItems('active')">Active</button>
       <button [ngClass]="((filter === 'completed' ? 'ff-josefin selected' : 'ff-josefin'))" (click)="showItems('completed')">Completed</button>
     </div>
-    <button class="ff-josefin" (click)="clearCompletedTodos()">Clear Completed</button>
   </div>
 </div>

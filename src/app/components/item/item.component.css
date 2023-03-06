@@ -25,3 +25,8 @@ li:hover .delete{
   opacity: 100;
   background: transparent;
 }
+
+li span {
+  width: fit-content;
+}
+

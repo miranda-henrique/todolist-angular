@@ -16,7 +16,7 @@
 
 .input-container input[type=text] {
   border: none;
-  width: 90%;
+  max-width: 90%;
   background-color: transparent;
 }
 
