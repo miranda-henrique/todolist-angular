@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 8.15.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8.15.1
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v2
+        env:
+          BASE_BRANCH: main
+          BRANCH: gh-pages
+          FOLDER: docs/
+          BUILD_SCRIPT: npm install && npm run build
